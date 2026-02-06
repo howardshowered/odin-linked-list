@@ -11,10 +11,12 @@ export class LinkedList {
         if (!head)
             head = newNode;
         else {
-            let tempNode;
-            
+            let tempNode = head;
+            while(!tempNode.next) {
+                tempNode = tempNode.next;
+            }
+            tempNode.next = newNode;
         }
-            
 
     }
 
