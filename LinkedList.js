@@ -64,7 +64,7 @@ export class LinkedList {
     }
 
     at(index) {
-        if( index >= size) {
+        if( index >= this.size) {
             return undefined;
         }
 
@@ -150,25 +150,17 @@ export class LinkedList {
 
     //@TODO.. extra credit but good exercise
     insertAt(index, ...values) {
-        if( index < 0 || index >= size)
+        if( index < 0 || index >= this.size)
             throw new RangeError(`The index must be valid`);
-        let currentNode = this.head;
-        let currentIndex = 0;
-        let previousNode;
-        while(currentNode.next)
-        {
-            if(currentIndex === index)
-            {
-                for( value in values)
-                {
-                    
-                }
 
-            }
-            previousNode = currentNode;
-            currentNode = currentNode.next;
-            currentIndex++;
-        }
+        // const 
+        let prev;
+        let next;
+
+        values.forEach( (value, valueIndex) => {
+
+        });
+        
 
     }
 
