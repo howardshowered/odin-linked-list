@@ -1,6 +1,6 @@
 import { Node } from "./Node.js";
 
-export class LinkedList {
+export default class LinkedList {
     constructor() {
         this.head = null;
         this.next = null;
@@ -72,6 +72,34 @@ export class LinkedList {
         for(let i = 0; i <  index; i++) {
             currentNode = currentNode.next;
         }
+    //@TODO.. extra credit but good exercise
+    insertAt(index, ...values) {
+        if( index < 0 || index >= this.size)
+            throw new RangeError(`The index must be valid`);
+
+        let prev = null;
+        let current = this.head;
+
+        while( current && index > 0)
+        {
+            previous = current;
+            current = current.next;
+            index--;
+        }
+
+        values.forEach( (value) => {
+            const newNode = new Node();
+            newNode.value = value;
+
+            if(previous === null) {
+                this.head = newNode;
+            } else {
+                previous.next = newNode;
+            }
+        });
+
+        previous.next = current;
+    }
 
         return currentNode;
     }
@@ -148,12 +176,12 @@ export class LinkedList {
     }
 
 
+
     //@TODO.. extra credit but good exercise
     insertAt(index, ...values) {
         if( index < 0 || index >= this.size)
             throw new RangeError(`The index must be valid`);
 
-<<<<<<< HEAD
         let prev = null;
         let current = this.head;
 
@@ -163,20 +191,6 @@ export class LinkedList {
             current = current.next;
             index--;
         }
-=======
-        // const 
-        let prevNode = index === 0 ? null : this.at(index - 1);
-        let nextNode = this.at(index);
-
-        values.forEach( (value, valueIndex) => {
-            if(valueIndex === 0 && index === 0)
-            {
-                const newNode = new Node(value);
-                this.head = newNode;
-                newNode.next = nextNode;
-
-            }   
->>>>>>> adf4657da7d396b02a507d4f8967284b4ed6c5e8
 
         values.forEach( (value) => {
             const newNode = new Node();
