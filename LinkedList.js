@@ -153,6 +153,7 @@ export class LinkedList {
         if( index < 0 || index >= this.size)
             throw new RangeError(`The index must be valid`);
 
+<<<<<<< HEAD
         let prev = null;
         let current = this.head;
 
@@ -162,6 +163,20 @@ export class LinkedList {
             current = current.next;
             index--;
         }
+=======
+        // const 
+        let prevNode = index === 0 ? null : this.at(index - 1);
+        let nextNode = this.at(index);
+
+        values.forEach( (value, valueIndex) => {
+            if(valueIndex === 0 && index === 0)
+            {
+                const newNode = new Node(value);
+                this.head = newNode;
+                newNode.next = nextNode;
+
+            }   
+>>>>>>> adf4657da7d396b02a507d4f8967284b4ed6c5e8
 
         values.forEach( (value) => {
             const newNode = new Node();
