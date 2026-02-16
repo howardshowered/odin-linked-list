@@ -182,7 +182,7 @@ export default class LinkedList {
         if( index < 0 || index >= this.size)
             throw new RangeError(`The index must be valid`);
 
-        let prev = null;
+        let previous = null;
         let current = this.head;
 
         while( current && index > 0)
